@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duckify Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+        background: linear-gradient(to right, #1db954, #191414);
+    }
+    .carousel-item img {
+         width: 100%; 
+         height: 500px; 
+         object-fit: cover; 
+    }
+    .card img { 
+        height: 200px;
+        object-fit: cover; 
+    }
+    /* Navbar con logo y botón de play */
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #1db954;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .play-btn {
+        border: none;
+        background: none;
+        color: #fff;
+        font-size: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    /* Transición para cambiar el fondo del navbar */
+    #mainNavbar {
+      transition: background 0.5s;
+    }
+  </style>
+</head>
+<body>
+    <div class="all" id="all">
+  <!-- Navbar -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        Duckify
+        <button id="playButton" class="play-btn" title="Reproducir Canción">
+          <i class="fas fa-play"></i>
+        </button>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Planes</a></li>
+          <li class="nav-item"><a class="nav-link" href="pokedex.html">PokeDex</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="fas fa-shopping-cart"></i> Carrito (<span id="cartCount">0</span>)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Carousel -->
+  <div id="storeCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/imagen_6.png" class="d-block w-100" alt="Banner 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images/imagen_7.png" class="d-block w-100" alt="Banner 2">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#storeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container my-5">
+    <h2 class="mb-4 text-center" id="planes">Planes Duckify y Extras</h2>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="images/imagen_1.png" class="card-img-top" alt="Plan Individual">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Individual</h5>
+            <p class="card-text">$9.99/mes</p>
+            <button class="btn btn-primary add-to-cart" data-name="Plan Individual" data-price="9.99">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="images/imagen_2.png" class="card-img-top" alt="Plan Pareja">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Pareja</h5>
+            <p class="card-text">$14.99/mes</p>
+            <button class="btn btn-primary add-to-cart" data-name="Plan Pareja" data-price="14.99">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="images/imagen_3.png" class="card-img-top" alt="Plan Familiar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Plan Familiar</h5>
+            <p class="card-text">$19.99/mes</p>
+            <button class="btn btn-primary add-to-cart" data-name="Plan Familiar" data-price="19.99">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="images/imagen_4.png" class="card-img-top" alt="Paquete AI">
+          <div class="card-body text-center">
+            <h5 class="card-title">Paquete AI</h5>
+            <p class="card-text">$4.99</p>
+            <button class="btn btn-primary add-to-cart" data-name="Paquete AI" data-price="4.99">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="images/imagen_5.png" class="card-img-top" alt="Noticias Internacionales">
+          <div class="card-body text-center">
+            <h5 class="card-title">Noticias Internacionales</h5>
+            <p class="card-text">$2.99</p>
+            <button class="btn btn-primary add-to-cart" data-name="Noticias Internacionales" data-price="2.99">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cartItems"></tbody>
+            </table>
+            <h5 class="text-end">Total: $<span id="cartTotal">0.00</span></h5>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
+            <button class="btn btn-primary">Finalizar Compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mb-4">
+      <a href="duckify.html" class="btn btn-success">Ir a Duckyfy</a>
+    </div>
+  </div>
+  </div>
+  
+  <!-- Audio element -->
+  <audio id="audioElement" src="images/song1.mp3" hidden></audio>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/audio-player.js"></script>
+</body>
+</html>
